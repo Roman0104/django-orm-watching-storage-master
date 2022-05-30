@@ -1,9 +1,12 @@
 import os
 
 from dotenv import load_dotenv
+from environs import Env
 
 
 load_dotenv()
+env = Env()
+env.read_env()
 
 DATABASES = {
     'default': {
@@ -24,7 +27,7 @@ DEBUG = True if os.getenv('DEBUG').lower() == 'true' else False
 
 ROOT_URLCONF = 'project.urls'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
