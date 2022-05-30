@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 
 
-load_dotenv()  # взять переменные окружения из .env. token = os.getenv('TOKEN')
+load_dotenv()
 
 DATABASES = {
     'default': {
